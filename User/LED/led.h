@@ -2,10 +2,11 @@
 #define __LED_H__
 
 #include "stm32f10x.h"
-#define LED_Pin  GPIO_Pin_6
-#define LED_Port GPIOC
-#define LED_CLK  RCC_APB2Periph_GPIOC
 
-void LED_GPIO_Config(void);
 
+void LED_GPIO_Init(uint32_t RCC_GPIO,GPIO_TypeDef* GPIOx,uint16_t GPIO_Pin);
+
+void LED_ON(GPIO_TypeDef* GPIOx,uint16_t GPIO_Pin);
+
+void LED_OFF(GPIO_TypeDef* GPIOx,uint16_t GPIO_Pin);
 #endif
