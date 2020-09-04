@@ -6,6 +6,7 @@
 
 #include "led.h"
 #include "delay.h"
+#include "beep/beep.h"
 
 #define LED_Pin  GPIO_Pin_3
 #define LED_Port GPIOC
@@ -16,11 +17,14 @@ int main(){
 	delay_init();
 			
 	LED_GPIO_Init(LED_CLK,LED_Port,LED_Pin);
+	//beepInit();
 	
 	uint8_t status=0;
 	while(1)
 	{
 		LED_Toggle(LED_Port,LED_Pin);
+		
+		//beepToggle();
 		/**
 		if(status==0){
 			LED_ON(LED_Port,LED_Pin);

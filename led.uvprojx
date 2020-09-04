@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F10X_MD</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Lib\CMSIS\Include;.\Lib\Device\Include;.\Lib\Drivers\inc;.\User;.\User\LED;.\Lib\Utils</IncludePath>
+              <IncludePath>.\Lib\CMSIS\Include;.\Lib\Device\Include;.\Lib\Drivers\inc;.\User;.\Lib\Utils;.\User\LED;.\User\beep</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -556,6 +556,21 @@
               <FileName>delay.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Lib\Utils\delay.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>BEEP</GroupName>
+          <Files>
+            <File>
+              <FileName>beep.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\User\beep\beep.h</FilePath>
+            </File>
+            <File>
+              <FileName>beep.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\beep\beep.c</FilePath>
             </File>
           </Files>
         </Group>
