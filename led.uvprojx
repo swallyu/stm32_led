@@ -10,7 +10,7 @@
       <TargetName>Target 1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6100001::V6.10.1::.\ARMCLANG</pCCUsed>
+      <pCCUsed>6110000::V6.11::.\ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -111,12 +111,12 @@
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
           <SimDllArguments> -REMAP</SimDllArguments>
-          <SimDlgDll>DCM.DLL</SimDlgDll>
-          <SimDlgDllArguments>-pCM3</SimDlgDllArguments>
+          <SimDlgDll>DARMSTM.DLL</SimDlgDll>
+          <SimDlgDllArguments>-pSTM32F103RB</SimDlgDllArguments>
           <TargetDllName>SARMCM3.DLL</TargetDllName>
           <TargetDllArguments></TargetDllArguments>
-          <TargetDlgDll>TCM.DLL</TargetDlgDll>
-          <TargetDlgDllArguments>-pCM3</TargetDlgDllArguments>
+          <TargetDlgDll>TARMSTM.DLL</TargetDlgDll>
+          <TargetDlgDllArguments>-pSTM32F103RB</TargetDlgDllArguments>
         </DllOption>
         <DebugOption>
           <OPTHX>
@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F10X_MD</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Lib\CMSIS\Include;.\Lib\Device\Include;.\Lib\Drivers\inc;.\User;.\User\LED</IncludePath>
+              <IncludePath>.\Lib\CMSIS\Include;.\Lib\Device\Include;.\Lib\Drivers\inc;.\User;.\User\LED;.\Lib\Utils</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -553,9 +553,9 @@
           <GroupName>Utils</GroupName>
           <Files>
             <File>
-              <FileName>sys.c</FileName>
+              <FileName>delay.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Lib\Utils\sys.c</FilePath>
+              <FilePath>.\Lib\Utils\delay.c</FilePath>
             </File>
           </Files>
         </Group>

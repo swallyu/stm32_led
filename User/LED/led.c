@@ -25,3 +25,12 @@ void LED_ON(GPIO_TypeDef* GPIOx,uint16_t GPIO_Pin){
 void LED_OFF(GPIO_TypeDef* GPIOx,uint16_t GPIO_Pin){
 	GPIO_SetBits(GPIOx,GPIO_Pin);
 }
+
+void LED_Toggle(GPIO_TypeDef* GPIOx,uint16_t GPIO_Pin){
+	uint8_t status = GPIO_ReadOutputDataBit(GPIOx,GPIO_Pin);
+	if(status){                 //高电平时，LED熄灭
+		LED_ON(GPIOx,GPIO_Pin);
+	}else{
+		LED_OFF(GPIOx,GPIO_Pin);
+	}
+}
