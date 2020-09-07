@@ -562,6 +562,11 @@
               <FileType>1</FileType>
               <FilePath>.\Lib\Utils\usart.c</FilePath>
             </File>
+            <File>
+              <FileName>it.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Lib\Utils\it.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
