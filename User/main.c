@@ -10,6 +10,7 @@
 #include "beep/beep.h"
 #include "usart.h"
 #include "it.h"
+#include "tim.h"
 
 #define LED_Pin  GPIO_Pin_3
 #define LED_Port GPIOC
@@ -21,7 +22,7 @@ int main(){
 	
 	delay_init();
 			
-	LED_GPIO_Init(LED_CLK,LED_Port,LED_Pin|LED7_Pin|LED6_Pin);
+	LED_GPIO_Init(LED_CLK,LED_Port,LED_Pin|LED7_Pin);
   //LED_GPIO_Init(RCC_APB2Periph_GPIOD,GPIOD,GPIO_Pin_2);
 	//beepInit();
 	
@@ -42,6 +43,9 @@ int main(){
 
   GPIO_IT_init_ExtiLine(RCC_APB2Periph_GPIOA,GPIOA,GPIO_Pin_0,EXTI_Trigger_Rising,GPIO_Mode_IPD,3,3);
     
+  TIM3_PWM_Init(899,0);
+  uint16_t led6pwmval=0;
+  uint8_t dir=0;
 	while(1)
 	{
 		LED_Toggle(LED_Port,LED_Pin);
@@ -63,6 +67,22 @@ int main(){
     }
 		
 		delay_ms(1000);
+    if(dir){
+      led6pwmval++;
+    }else{
+      led6pwmval--;
+    }
+    
+    if(led6pwmval>300){
+      led6pwmval=0;
+    }
+    if(led6pwmval==0){
+      if(dir==1)
+        dir=0;
+      else
+        dir=1;
+    }
+    TIM_SetTIM3Compare1(led6pwmval);
 	}
 }
 void EXTI0_IRQHandler(void){
